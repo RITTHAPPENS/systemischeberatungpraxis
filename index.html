@@ -22,7 +22,7 @@
 <link rel="icon" href="assets/logo-praxis-fuer-systemische-beratung.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,400;0,500;0,600;1,400&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600&family=Karla:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -75,8 +75,17 @@
   --ink-soft:#5C635F;
   --white:#FBF8F2;
 
-  --f-display:"Faustina",Georgia,serif;
+  /* Headline-Schrift: hier umschalten. Alternativen jeweils auch oben im Google-Fonts-Link ergaenzen.
+     Ruhiger Serifen-Look: "Newsreader", Georgia, serif
+     Weicher und waermer:  "Fraunces", Georgia, serif
+     Schmaler und straffer:"Chivo", sans-serif */
+  --f-display:"Archivo",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   --f-body:"Karla",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+
+  --fs-lede:clamp(1.1rem,1.35vw,1.2rem);
+  --fs-body:1.0625rem;
+  --fs-small:.955rem;
+  --fs-mini:.87rem;
 
   --wrap:1180px;
   --gap:clamp(56px,7vw,116px);
@@ -95,16 +104,18 @@ body{
 img{max-width:100%;height:auto;display:block}
 a{color:inherit}
 
-h1,h2,h3{font-family:var(--f-display);font-weight:500;line-height:1.14;letter-spacing:-.012em;margin:0}
-h1{font-size:clamp(2.5rem,5.6vw,4.15rem);color:var(--teal-deep)}
-h2{font-size:clamp(1.85rem,3.4vw,2.85rem);color:var(--teal-deep)}
-h3{font-size:1.24rem;line-height:1.3}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;line-height:1.16;letter-spacing:-.022em;margin:0}
+h1{font-size:clamp(2.3rem,4.9vw,3.6rem);color:var(--teal-deep)}
+h2{font-size:clamp(1.7rem,2.9vw,2.35rem);color:var(--teal-deep)}
+h3{font-size:1.16rem;line-height:1.34;letter-spacing:-.014em}
 p{margin:0 0 1.05em}
 p:last-child{margin-bottom:0}
 
 .wrap{width:min(var(--wrap),calc(100% - 44px));margin-inline:auto}
 .section{padding-block:var(--gap)}
-.lede{font-size:clamp(1.08rem,1.5vw,1.24rem);line-height:1.66;color:var(--ink-soft)}
+.lede{font-size:var(--fs-lede);line-height:1.68;color:var(--ink-soft)}
+.section p:not(.lede):not(.geno__claim){font-size:var(--fs-body)}
+.intro{margin-top:20px}
 .measure{max-width:63ch}
 
 /* ============================================================
@@ -139,10 +150,10 @@ p:last-child{margin-bottom:0}
 .hdr__in{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:16px;transition:padding .4s var(--ease)}
 .hdr.is-stuck .hdr__in{padding-block:9px}
 .brand{display:flex;align-items:center;gap:13px;text-decoration:none;flex:none}
-.brand img{height:50px;width:auto;transition:height .4s var(--ease)}
-.hdr.is-stuck .brand img{height:40px}
+.brand img{height:66px;width:auto;transition:height .4s var(--ease)}
+.hdr.is-stuck .brand img{height:52px}
 .brand__txt{display:flex;flex-direction:column;line-height:1.16}
-.brand__txt b{font-family:var(--f-display);font-weight:500;font-size:1.02rem;color:var(--teal-deep);letter-spacing:.005em}
+.brand__txt b{font-family:var(--f-display);font-weight:600;font-size:1.04rem;color:var(--teal-deep);letter-spacing:-.012em}
 .brand__txt span{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
 
 .nav{display:flex;align-items:center;gap:34px}
@@ -184,7 +195,7 @@ p:last-child{margin-bottom:0}
 .hero__cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
 .hero__facts{
   display:flex;flex-wrap:wrap;gap:10px 30px;margin-top:38px;padding-top:24px;
-  border-top:1px solid var(--line);font-size:.9rem;color:var(--ink-soft);
+  border-top:1px solid var(--line);font-size:var(--fs-small);color:var(--ink-soft);
 }
 .hero__facts b{font-weight:600;color:var(--teal-deep)}
 .hero__media{position:relative}
@@ -202,7 +213,7 @@ p:last-child{margin-bottom:0}
 .nodes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(30px,4vw,68px)}
 .nodes li{
   position:relative;padding:19px 0 19px 40px;border-top:1px solid var(--sand-deep);
-  font-size:1.02rem;line-height:1.6;
+  font-size:var(--fs-body);line-height:1.62;
 }
 .nodes li::before{
   content:"";position:absolute;left:4px;top:27px;width:11px;height:11px;border-radius:50%;
@@ -229,7 +240,7 @@ p:last-child{margin-bottom:0}
 .card:hover .card__img img{transform:scale(1.055)}
 .card__body{padding:26px 26px 30px;flex:1;display:flex;flex-direction:column}
 .card h3{color:var(--teal-deep);margin-bottom:11px}
-.card p{font-size:.955rem;line-height:1.62;color:var(--ink-soft)}
+.card p{font-size:var(--fs-small);line-height:1.64;color:var(--ink-soft)}
 .card__rule{margin-top:auto;padding-top:20px;height:1px}
 .card__rule i{display:block;height:1.5px;width:34px;background:var(--teal);transition:width .5s var(--ease)}
 .card:hover .card__rule i{width:76px}
@@ -242,22 +253,12 @@ p:last-child{margin-bottom:0}
 .geno p{color:#C3CCC6}
 .geno__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,80px);align-items:center}
 .geno__claim{
-  margin-top:30px;padding-top:26px;border-top:1px solid rgba(226,216,198,.24);
-  font-family:var(--f-display);font-size:clamp(1.2rem,2vw,1.55rem);line-height:1.42;color:#EFE9DE;font-style:italic;
+  margin-top:32px;padding-top:28px;border-top:1px solid rgba(226,216,198,.24);
+  font-family:var(--f-display);font-weight:500;font-size:clamp(1.15rem,1.8vw,1.42rem);
+  line-height:1.46;letter-spacing:-.015em;color:#EFE9DE;
 }
 .geno__art{position:relative}
-.geno__art img{width:100%;aspect-ratio:4/4.5;object-fit:cover;border-radius:var(--r);opacity:.92}
-.geno__svg{position:absolute;left:-7%;bottom:-6%;width:62%;background:var(--sand);border:1px solid rgba(226,216,198,.4);border-radius:var(--r);padding:20px}
-.geno__svg svg{width:100%;height:auto;display:block}
-.geno__svg .gline{fill:none;stroke:var(--teal);stroke-width:1.6}
-.geno__svg .gnode{fill:none;stroke:var(--teal-deep);stroke-width:1.8}
-.geno__svg .gfocus{fill:var(--sage);stroke:var(--teal-deep);stroke-width:1.8}
-.geno__cap{margin-top:14px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-align:center}
-
-.draw{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);transition:stroke-dashoffset 1.5s var(--ease)}
-.is-in .draw{stroke-dashoffset:0}
-.pop{opacity:0;transform:scale(.6);transform-origin:center;transition:opacity .6s var(--ease),transform .6s var(--ease)}
-.is-in .pop{opacity:1;transform:scale(1)}
+.geno__art img{width:100%;aspect-ratio:4/4.15;object-fit:cover;object-position:52% 30%;border-radius:var(--r)}
 
 /* ============================================================
    ÜBER MICH
@@ -266,8 +267,8 @@ p:last-child{margin-bottom:0}
 .about__media img{width:100%;aspect-ratio:4/4.35;object-fit:cover;border-radius:var(--r)}
 .about__quals{list-style:none;margin:30px 0 0;padding:0;display:grid;gap:0}
 .about__quals li{
-  display:grid;grid-template-columns:88px 1fr;gap:20px;padding:15px 0;
-  border-top:1px solid var(--sand-deep);font-size:.98rem;
+  display:grid;grid-template-columns:96px 1fr;gap:20px;padding:15px 0;
+  border-top:1px solid var(--sand-deep);font-size:var(--fs-small);
 }
 .about__quals b{font-family:var(--f-body);font-weight:600;color:var(--teal);font-variant-numeric:tabular-nums}
 
@@ -283,7 +284,7 @@ p:last-child{margin-bottom:0}
   font-family:var(--f-display);font-size:1.02rem;color:var(--teal);letter-spacing:.04em;
 }
 .step h3{margin-bottom:10px;color:var(--teal-deep)}
-.step p{font-size:.95rem;color:var(--ink-soft);line-height:1.62}
+.step p{font-size:var(--fs-small);color:var(--ink-soft);line-height:1.64}
 
 /* ============================================================
    HONORAR
@@ -292,45 +293,51 @@ p:last-child{margin-bottom:0}
 .price{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:34px 30px;transition:border-color .4s var(--ease),transform .4s var(--ease)}
 .price:hover{border-color:var(--teal);transform:translateY(-4px)}
 .price b{display:block;font-family:var(--f-display);font-weight:500;font-size:2.5rem;color:var(--teal);line-height:1;letter-spacing:-.02em}
-.price span{display:block;margin-top:12px;font-size:.94rem;color:var(--ink-soft)}
-.price em{display:block;margin-top:6px;font-style:normal;font-size:.87rem;color:var(--teal-deep);font-weight:500}
-.honorar__note{margin-top:30px;font-size:.94rem;color:var(--ink-soft);max-width:72ch}
+.price span{display:block;margin-top:12px;font-size:var(--fs-small);color:var(--ink-soft)}
+.price em{display:block;margin-top:6px;font-style:normal;font-size:var(--fs-mini);color:var(--teal-deep);font-weight:500}
+.honorar__note{margin-top:30px;font-size:var(--fs-small);color:var(--ink-soft);max-width:72ch}
 
 /* ============================================================
-   PRAXIS BAND
+   PRAXIS
    ============================================================ */
-.praxis__grid{display:grid;grid-template-columns:1.5fr .84fr;gap:clamp(18px,2.4vw,28px);margin-top:48px}
-.praxis__grid img{width:100%;height:100%;object-fit:cover;border-radius:var(--r);aspect-ratio:16/10.6}
-.praxis__grid img:last-child{aspect-ratio:auto}
+.praxis{background:var(--white);border-block:1px solid var(--line)}
+.praxis__grid{display:grid;grid-template-columns:1.35fr .85fr;gap:0;margin-top:48px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.praxis__img{position:relative;min-height:100%}
+.praxis__img img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/11}
+.praxis__panel{background:var(--sand-warm);padding:clamp(30px,3.4vw,46px);display:flex;flex-direction:column;justify-content:center}
+.praxis__panel h3{color:var(--teal-deep);margin-bottom:6px}
+.praxis__adr{font-size:var(--fs-body);line-height:1.7;color:var(--ink)}
+.praxis__list{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:0}
+.praxis__list li{display:flex;gap:13px;align-items:flex-start;padding:13px 0;border-top:1px solid var(--line);font-size:var(--fs-small);color:var(--ink-soft)}
+.praxis__list svg{width:17px;height:17px;flex:none;margin-top:3px;color:var(--teal)}
 
 /* ============================================================
    KONTAKT
    ============================================================ */
-.kontakt{background:var(--white);border-top:1px solid var(--line)}
-.kontakt__grid{display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(36px,5vw,74px);margin-top:48px}
-.field{display:grid;gap:7px;margin-bottom:18px}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-label{font-size:.86rem;font-weight:500;color:var(--teal-deep);letter-spacing:.01em}
-input,select,textarea{
-  font-family:var(--f-body);font-size:.98rem;color:var(--ink);
-  padding:13px 15px;border:1px solid var(--line);border-radius:var(--r);background:var(--sand);
-  transition:border-color .3s var(--ease),background .3s var(--ease);width:100%;
+.kontakt{background:var(--sand)}
+.kontakt__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,4.4vw,66px);margin-top:48px;align-items:start}
+.reach{display:grid;gap:0;margin-bottom:32px}
+.reach a{
+  display:flex;align-items:center;gap:18px;padding:22px 4px;border-top:1px solid var(--line);
+  text-decoration:none;transition:padding-left .4s var(--ease);
 }
-input:focus,select:focus,textarea:focus{border-color:var(--teal);background:var(--white);outline:none}
-textarea{min-height:132px;resize:vertical}
-.check{display:flex;gap:12px;align-items:flex-start;margin:6px 0 22px;font-size:.87rem;color:var(--ink-soft);line-height:1.55}
-.check input{width:17px;height:17px;flex:none;margin-top:2px;accent-color:var(--teal)}
-.check a{color:var(--teal)}
+.reach a:last-child{border-bottom:1px solid var(--line)}
+.reach a:hover{padding-left:14px}
+.reach__ico{
+  width:42px;height:42px;flex:none;display:grid;place-items:center;border:1px solid var(--line);
+  border-radius:50%;color:var(--teal);transition:background .4s var(--ease),border-color .4s var(--ease)
+}
+.reach a:hover .reach__ico{background:var(--teal);border-color:var(--teal);color:var(--white)}
+.reach__ico svg{width:18px;height:18px}
+.reach__txt{display:flex;flex-direction:column;line-height:1.4}
+.reach__txt b{font-size:var(--fs-body);font-weight:500;color:var(--teal-deep)}
+.reach__txt span{font-size:var(--fs-mini);color:var(--ink-soft)}
+.kontakt__cta{display:flex;flex-wrap:wrap;gap:14px}
+.kontakt__hint{margin-top:22px;font-size:var(--fs-small);color:var(--ink-soft);max-width:52ch}
 
-.info__block{padding:22px 0;border-top:1px solid var(--sand-deep)}
-.info__block:first-of-type{border-top:none;padding-top:0}
-.info__block h3{font-size:1.02rem;color:var(--teal-deep);margin-bottom:8px}
-.info__block p,.info__block a{font-size:.97rem;color:var(--ink-soft);text-decoration:none}
-.info__block a:hover{color:var(--teal)}
-
-.map{position:relative;margin-top:26px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;aspect-ratio:16/9;background:var(--sand-warm)}
-.map__consent{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:14px;text-align:center;padding:26px;background:var(--sand-warm)}
-.map__consent p{font-size:.9rem;color:var(--ink-soft);max-width:38ch}
+.map{position:relative;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;aspect-ratio:4/3.4;background:var(--sand-warm)}
+.map__consent{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:16px;text-align:center;padding:30px;background:var(--sand-warm)}
+.map__consent p{font-size:var(--fs-small);color:var(--ink-soft);max-width:36ch}
 .map iframe{width:100%;height:100%;border:0}
 
 /* ============================================================
@@ -342,7 +349,7 @@ textarea{min-height:132px;resize:vertical}
 .ftr a:hover{color:#fff}
 .ftr__grid{display:grid;grid-template-columns:1.35fr .8fr .85fr 1fr;gap:clamp(28px,4vw,56px)}
 .ftr h3{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#8FA39B;font-family:var(--f-body);font-weight:600;margin-bottom:16px}
-.ftr__logo{height:96px;width:auto;margin-bottom:20px;background:var(--sand);padding:14px 18px;border-radius:var(--r)}
+.ftr__logo{height:118px;width:auto;margin-bottom:22px;background:var(--sand);padding:16px 20px;border-radius:var(--r)}
 .ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
 .ftr__legal{
   margin-top:clamp(40px,5vw,60px);padding-top:24px;border-top:1px solid rgba(189,199,193,.2);
@@ -377,16 +384,16 @@ textarea{min-height:132px;resize:vertical}
   .burger{display:block;z-index:95}
   .brand{position:relative;z-index:95}
   .hero__grid,.geno__grid,.about__grid,.kontakt__grid,.anliegen__head,.praxis__grid{grid-template-columns:1fr}
+  .map{aspect-ratio:16/11}
   .hero__media{order:-1;max-width:440px}
   .hero__media img{aspect-ratio:4/3.4}
   .nodes{grid-template-columns:1fr}
   .nodes li:nth-child(5)::after{display:block}
   .nodes li:last-child::after{display:none}
-  .geno__svg{position:static;width:100%;margin-top:20px}
   .honorar__grid{grid-template-columns:1fr}
 }
 @media (max-width:440px){
-  .brand img{height:42px}
+  .brand img{height:52px}
   .brand__txt b{font-size:.88rem}
   .brand__txt span{font-size:.64rem}
 }
@@ -506,7 +513,7 @@ textarea{min-height:132px;resize:vertical}
   <div class="wrap">
     <div class="rv">
       <h2>Beratungsangebote in meiner Praxis</h2>
-      <p class="lede measure" style="margin-top:20px">
+      <p class="lede measure intro">
         Alle Angebote finden in der Regel in Präsenz in Wadern statt. Online- und Videoberatung
         ist nach individueller Absprache möglich.
       </p>
@@ -602,7 +609,7 @@ textarea{min-height:132px;resize:vertical}
   <div class="wrap geno__grid">
     <div class="rv">
       <h2>Biografiearbeit mit dem Genogramm</h2>
-      <p class="lede" style="margin-top:22px">
+      <p class="intro">
         Das Genogramm ist eine grafische Darstellung Ihrer Familiengeschichte über mehrere
         Generationen hinweg. Es macht Beziehungsstrukturen, wiederkehrende Muster, Verluste,
         Bindungsabbrüche und Rollenbilder sichtbar.
@@ -616,35 +623,9 @@ textarea{min-height:132px;resize:vertical}
       <p class="geno__claim">Verstehen, was wirkt. Verändern, was belastet. Stärken, was trägt.</p>
     </div>
 
-    <div class="geno__art rv" id="genoArt">
+    <div class="geno__art rv">
       <img src="assets/genogramm-biografiearbeit.jpg" alt="Biografiearbeit mit dem Genogramm am Whiteboard in der Praxis in Wadern" loading="lazy" width="1156" height="1600">
 
-      <figure class="geno__svg" style="margin:0">
-        <svg viewBox="0 0 260 190" role="img" aria-label="Schematische Darstellung eines Genogramms über drei Generationen">
-          <!-- generation 1 -->
-          <path class="gline draw" d="M56 34h68"/>
-          <path class="gline draw" d="M90 34v26"/>
-          <path class="gline draw" d="M170 34h34"/>
-          <path class="gline draw" d="M187 34v26"/>
-          <!-- generation 2 -->
-          <path class="gline draw" d="M90 88h97"/>
-          <path class="gline draw" d="M138 88v26"/>
-          <!-- generation 3 -->
-          <path class="gline draw" d="M100 142h76"/>
-          <path class="gline draw" d="M138 114v28"/>
-          <path class="gline draw" d="M100 142v18"/>
-          <path class="gline draw" d="M176 142v18"/>
-
-          <rect class="gnode pop" x="42" y="20" width="28" height="28" style="transition-delay:.1s"/>
-          <circle class="gnode pop" cx="138" cy="34" r="14" style="transition-delay:.2s"/>
-          <rect class="gnode pop" x="190" y="20" width="28" height="28" style="transition-delay:.3s"/>
-          <circle class="gnode pop" cx="90" cy="74" r="14" style="transition-delay:.45s"/>
-          <rect class="gnode pop" x="173" y="60" width="28" height="28" style="transition-delay:.55s"/>
-          <rect class="gnode pop" x="86" y="160" width="28" height="28" style="transition-delay:.75s"/>
-          <circle class="gfocus pop" cx="176" cy="174" r="14" style="transition-delay:.85s"/>
-        </svg>
-        <figcaption class="geno__cap">Drei Generationen im Blick</figcaption>
-      </figure>
     </div>
   </div>
 </section>
@@ -658,7 +639,7 @@ textarea{min-height:132px;resize:vertical}
 
     <div class="rv">
       <h2>Stefanie Abdulrazak, systemische Beraterin und Therapeutin</h2>
-      <p class="lede" style="margin-top:22px">
+      <p class="intro">
         Geboren und aufgewachsen im Saarland, führte mich mein beruflicher Weg in verschiedene
         Arbeitsfelder der psychosozialen Versorgung. Besonders prägend waren meine Tätigkeiten
         in der Suchthilfe und im psychiatrischen Kontext in Frankfurt und Darmstadt sowie in der
@@ -687,7 +668,7 @@ textarea{min-height:132px;resize:vertical}
   <div class="wrap">
     <div class="rv">
       <h2>So läuft eine Beratung ab</h2>
-      <p class="lede measure" style="margin-top:20px">
+      <p class="lede measure intro">
         Anzahl und Häufigkeit der Sitzungen richten sich nach Ihrem Anliegen und werden
         individuell vereinbart.
       </p>
@@ -719,7 +700,7 @@ textarea{min-height:132px;resize:vertical}
   <div class="wrap">
     <div class="rv">
       <h2>Honorar</h2>
-      <p class="lede measure" style="margin-top:20px">
+      <p class="lede measure intro">
         Ich arbeite ausschließlich auf Selbstzahlerbasis. Dadurch entfällt das Antragsverfahren
         bei der Krankenkasse, Termine sind zeitnah möglich und es wird keine Diagnose bei der
         Krankenkasse hinterlegt.
@@ -755,18 +736,40 @@ textarea{min-height:132px;resize:vertical}
 </section>
 
 <!-- ============================== PRAXIS ============================== -->
-<section class="section" id="praxis" style="padding-top:0">
+<section class="section praxis" id="praxis">
   <div class="wrap">
     <div class="rv">
       <h2>Die Praxis in Wadern</h2>
-      <p class="lede measure" style="margin-top:20px">
+      <p class="lede measure intro">
         Ein geschützter Raum, in dem Sie sich mit Ihren Fragen, Unsicherheiten und Erfahrungen
         ernst genommen fühlen können.
       </p>
     </div>
+
     <div class="praxis__grid rv">
-      <img src="assets/praxisraum-wadern.jpg" alt="Beratungsraum der Praxis für systemische Beratung in Wadern" loading="lazy" width="1800" height="1300">
-      <img src="assets/praxis-detail.jpg" alt="Detail im Beratungsraum der Praxis in Wadern" loading="lazy" width="867" height="1200">
+      <div class="praxis__img">
+        <img src="assets/praxisraum-wadern.jpg" alt="Beratungsraum der Praxis für systemische Beratung in Wadern" loading="lazy" width="1800" height="1300">
+      </div>
+
+      <div class="praxis__panel">
+        <h3>Praxis für systemische Beratung</h3>
+        <p class="praxis__adr">Stefanie Abdulrazak<br>Unterstraße 14<br>66687 Wadern</p>
+
+        <ul class="praxis__list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-5.6-7-11a7 7 0 1 1 14 0c0 5.4-7 11-7 11z"/></svg>
+            <span>Zentrale Lage in Wadern, mit dem Auto und mit öffentlichen Verkehrsmitteln gut erreichbar</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="4" y="4" width="16" height="12" rx="2"/><path d="M4 12h16M8 20v-4M16 20v-4"/></svg>
+            <span>Busbahnhof Wadern etwa fünf Gehminuten entfernt</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 17V8h3.2a2.9 2.9 0 0 1 0 5.8H9"/></svg>
+            <span>Öffentliche Parkmöglichkeiten direkt vor der Praxis</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>
@@ -775,102 +778,44 @@ textarea{min-height:132px;resize:vertical}
 <section class="section kontakt" id="kontakt">
   <div class="wrap">
     <div class="rv">
-      <h2>Termin anfragen</h2>
-      <p class="lede measure" style="margin-top:20px">
-        Schreiben Sie mir Ihr Anliegen in Stichworten. Ich melde mich in der Regel innerhalb
-        von 24 Stunden bei Ihnen zurück.
+      <h2>Kontakt aufnehmen</h2>
+      <p class="lede measure intro">
+        Der erste telefonische Kontakt von 20 Minuten ist kostenfrei. Darin klären wir, ob und
+        wie ich Sie unterstützen kann.
       </p>
     </div>
 
     <div class="kontakt__grid">
-      <!-- In Elementor durch ein Formular-Widget ersetzen -->
-      <form id="anfrage" novalidate>
-        <div class="row2">
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" required>
-          </div>
-          <div class="field">
-            <label for="mail">E-Mail</label>
-            <input id="mail" name="mail" type="email" autocomplete="email" required>
-          </div>
-        </div>
-
-        <div class="row2">
-          <div class="field">
-            <label for="tel">Telefon</label>
-            <input id="tel" name="tel" type="tel" autocomplete="tel">
-          </div>
-          <div class="field">
-            <label for="format">Gewünschtes Format</label>
-            <select id="format" name="format">
-              <option>Einzelberatung</option>
-              <option>Paarberatung</option>
-              <option>Familienberatung</option>
-              <option>Erziehungsberatung</option>
-              <option>Beratung für Kinder und Jugendliche</option>
-              <option>Angehörigenberatung</option>
-              <option>Systemisches Coaching</option>
-              <option>Walk and Talk</option>
-              <option>Noch offen</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="row2">
-          <div class="field">
-            <label for="termin">Wunschtermin oder Verfügbarkeit</label>
-            <input id="termin" name="termin" type="text" placeholder="z. B. dienstags vormittags">
-          </div>
-          <div class="field">
-            <label for="quelle">Wie sind Sie auf mich aufmerksam geworden?</label>
-            <input id="quelle" name="quelle" type="text">
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="anliegen">Ihr Anliegen</label>
-          <textarea id="anliegen" name="anliegen" placeholder="Worum geht es? Ein paar Stichworte genügen."></textarea>
-        </div>
-
-        <label class="check">
-          <input type="checkbox" id="dsgvo" name="dsgvo" required>
-          <span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Angaben zur Bearbeitung meiner Anfrage einverstanden.</span>
-        </label>
-
-        <button class="btn" type="submit">
-          Anfrage senden
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
-        <p id="formHint" role="status" style="margin-top:16px;font-size:.9rem;color:var(--teal)"></p>
-      </form>
-
       <div class="rv">
-        <div class="info__block">
-          <h3>Praxis</h3>
-          <p>Praxis für systemische Beratung<br>Stefanie Abdulrazak<br>Unterstraße 14, 66687 Wadern</p>
-        </div>
-        <div class="info__block">
-          <h3>Telefon</h3>
-          <!-- Platzhalter, finale Nummer wird nachgereicht -->
-          <p><a href="tel:+49123455670">01234 5567 0</a></p>
-        </div>
-        <div class="info__block">
-          <h3>E-Mail</h3>
-          <p><a href="mailto:kontakt@systemische-praxis-wadern.de">kontakt@systemische-praxis-wadern.de</a></p>
-        </div>
-        <div class="info__block">
-          <h3>Anfahrt</h3>
-          <p>Die Praxis befindet sich in zentraler Lage in Wadern und ist mit dem Auto sowie mit
-             öffentlichen Verkehrsmitteln gut erreichbar. Der Busbahnhof Wadern ist etwa fünf
-             Gehminuten entfernt, öffentliche Parkmöglichkeiten stehen direkt vor der Praxis zur Verfügung.</p>
+        <div class="reach">
+          <a href="tel:+49123455670">
+            <span class="reach__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6.5 3h3l1.5 4.5-2 1.5a12 12 0 0 0 6 6l1.5-2L21 14.5v3a2 2 0 0 1-2.2 2A16.8 16.8 0 0 1 4 5.2 2 2 0 0 1 6 3z"/></svg></span>
+            <span class="reach__txt"><b>01234 5567 0</b><span>Montag bis Freitag, Anrufbeantworter außerhalb der Sprechzeiten</span></span>
+          </a>
+          <a href="mailto:kontakt@systemische-praxis-wadern.de">
+            <span class="reach__ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+            <span class="reach__txt"><b>kontakt@systemische-praxis-wadern.de</b><span>Antwort in der Regel innerhalb von 24 Stunden</span></span>
+          </a>
         </div>
 
-        <div class="map" id="map">
-          <div class="map__consent" id="mapConsent">
-            <p>Die Karte wird von Google Maps geladen. Dabei werden Daten an Google übertragen.</p>
-            <button class="btn btn--ghost" type="button" id="mapLoad">Karte laden</button>
-          </div>
+        <div class="kontakt__cta">
+          <a class="btn" href="kontakt.html">
+            Zum Kontaktformular
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="#leistungen">Leistungen ansehen</a>
+        </div>
+
+        <p class="kontakt__hint">
+          Schreiben Sie mir Ihr Anliegen gern in Stichworten. Alles, was Sie mir mitteilen,
+          unterliegt meiner Schweigepflicht.
+        </p>
+      </div>
+
+      <div class="map rv" id="map">
+        <div class="map__consent" id="mapConsent">
+          <p>Die Karte wird von Google Maps geladen. Dabei werden Daten an Google übertragen.</p>
+          <button class="btn btn--ghost" type="button" id="mapLoad">Karte laden</button>
         </div>
       </div>
     </div>
@@ -977,25 +922,6 @@ textarea{min-height:132px;resize:vertical}
     items.forEach(function(el){ io.observe(el); });
   }
 
-  /* ---- genogram line drawing ---- */
-  var art = document.getElementById("genoArt");
-  if(art){
-    art.querySelectorAll(".draw").forEach(function(p){
-      var len = p.getTotalLength();
-      p.style.setProperty("--len", len);
-      p.style.transitionDelay = (Math.random() * .35).toFixed(2) + "s";
-    });
-    if(reduce || !("IntersectionObserver" in window)){
-      art.classList.add("is-in");
-    } else {
-      new IntersectionObserver(function(entries, obs){
-        entries.forEach(function(en){
-          if(en.isIntersecting){ en.target.classList.add("is-in"); obs.unobserve(en.target); }
-        });
-      }, {threshold:.3}).observe(art);
-    }
-  }
-
   /* ---- map consent ---- */
   var mapLoad = document.getElementById("mapLoad");
   if(mapLoad){
@@ -1011,20 +937,6 @@ textarea{min-height:132px;resize:vertical}
     });
   }
 
-  /* ---- form (Platzhalter, in Elementor durch Formular-Widget ersetzen) ---- */
-  var form = document.getElementById("anfrage");
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
-    var hint = document.getElementById("formHint");
-    if(!form.checkValidity()){
-      hint.style.color = "#9A3B2E";
-      hint.textContent = "Bitte füllen Sie Name, E-Mail und die Einwilligung aus.";
-      form.reportValidity();
-      return;
-    }
-    hint.style.color = "var(--teal)";
-    hint.textContent = "Vielen Dank. Der Versand wird in Elementor angebunden.";
-  });
 })();
 </script>
 </body>
